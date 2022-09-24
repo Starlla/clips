@@ -15,6 +15,10 @@ export class RegisterComponent implements OnInit {
   confirm_password = new FormControl('', [Validators.required, Validators.pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm)])
   phoneNumber = new FormControl('', [Validators.required, Validators.minLength(13), Validators.maxLength(13)])
 
+  showAlert = false
+  alertMsg = 'Please wait! Your account is being created.'
+  alertColor='blue'
+
   registerForm = new FormGroup({
     name: this.name,
     email: this.email,
@@ -30,7 +34,9 @@ export class RegisterComponent implements OnInit {
   }
 
   register() {
-    console.log('here')
+  this.showAlert=true
+  this.alertMsg = 'Please wait! Your account is being created.'
+  this.alertColor='blue'
   }
 
 }
