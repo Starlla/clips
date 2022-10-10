@@ -45,7 +45,7 @@ export class RegisterComponent implements OnInit {
     password: this.password,
     confirm_password: this.confirm_password,
     phoneNumber: this.phoneNumber,
-  }, [RegisterValidators.match('password', 'confirmPassword')]);
+  }, [RegisterValidators.match('password', 'confirm_password')]);
 
   constructor(private auth: AuthService) { }
 
