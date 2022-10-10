@@ -14,8 +14,8 @@ export class RegisterComponent implements OnInit {
   inSubmission = false;
 
   name = new FormControl('', [Validators.required, Validators.minLength(3)]);
-  email = new FormControl<string|null>('', [Validators.required, Validators.email]);
-  age = new FormControl<number|null>(null, [
+  email = new FormControl<string | null>('', [Validators.required, Validators.email]);
+  age = new FormControl<number | null>(null, [
     Validators.required,
     Validators.min(18),
     Validators.max(150),
@@ -45,11 +45,11 @@ export class RegisterComponent implements OnInit {
     password: this.password,
     confirm_password: this.confirm_password,
     phoneNumber: this.phoneNumber,
-  },[RegisterValidators.match]);
+  }, [RegisterValidators.match('password', 'confirmPassword')]);
 
-  constructor(private auth: AuthService) {}
+  constructor(private auth: AuthService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   async register() {
     this.showAlert = true;
