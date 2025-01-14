@@ -13,28 +13,28 @@ export class LoginComponent implements OnInit {
   alertColor = 'blue';
   inSubmission = false;
 
-  constructor(private auth: AngularFireAuth) {}
+  constructor(private auth: AngularFireAuth) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   async login() {
     this.showAlert = true;
-    this.alertMsg = 'Please wait! We are log you in!';
+    this.alertMsg = 'Please wait! We are logging you in!';
     this.alertColor = 'blue';
     this.inSubmission = true;
 
     try {
-      this.auth.signInWithEmailAndPassword(
+      await this.auth.signInWithEmailAndPassword(
         this.credentials.email,
         this.credentials.password
       );
+      this.alertMsg = 'Success! You are now logged in.';
+      this.alertColor = 'green';
     } catch (e) {
+      console.error('Error:', e); // Log the error for debugging
       this.inSubmission = false;
       this.alertMsg = 'An unexpected error occurred. Please try again later.';
       this.alertColor = 'red';
-      return;
     }
-    this.alertMsg = 'Success! You are now logged in.';
-    this.alertColor = 'green';
   }
 }
