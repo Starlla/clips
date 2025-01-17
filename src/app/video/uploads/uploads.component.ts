@@ -6,10 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./uploads.component.css']
 })
 export class UploadsComponent implements OnInit {
+  isDragover = false
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  storeFile($event: Event) {
+    this.isDragover = false;
+
   }
 
 }
