@@ -32,6 +32,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     AngularFirestoreModule,
     VideoModule,
     AppRoutingModule,
+    AngularFirestoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
